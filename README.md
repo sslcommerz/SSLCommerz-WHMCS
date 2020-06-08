@@ -26,6 +26,10 @@ Test Mode =
 Click `Save Changes`
 9. The module is now and ready.
 
+### Image Reference
+
+![Payments Menu](images/config.png)
+
 ## Frequently Asked Questions
 
 ### I want my customer will bear the gateway charges. How can I do that?
@@ -39,3 +43,9 @@ Click `Save Changes`
 
 ### How to switch at easyCheckout Hosted PG?
 > To switch at easyCheckout Hosted PG, uncheck the `Customer will bear gateway charge` and enable it from merchant panel.
+
+### Is this module support IPN?
+> No, currently IPN is not supported for this module.
+
+### How to integrate easyCheckout Popup?
+> You can update the module with the help of our [Developer Page](https://developer.sslcommerz.com/doc/v4/#easy-chechout "SSLCommerz Developer Page")
