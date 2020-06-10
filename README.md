@@ -8,27 +8,50 @@ SSLCOMMERZ is the first payment gateway in Bangladesh opening doors for merchant
 2. cURL php extension.
 3. [Sandbox Account](https://developer.sslcommerz.com/registration/ "SSLCommerz Sandbox Registration")
 
-### How do I install the WHMCS module?
+### Change Log
+
+1. New version 4 API.
+2. New easyCheckout Hosted & Popup UI.
+3. Dynamic IPN URL(Auto Configure)
+4. Tested upto V7.5.1 R2
+
+### How to install the WHMCS module?
 
 To install the WHMCS payment module, follow the instructions below:
 
-1. Download the WHMCS payment module WHMCMS-sslcommerz-v6.
+1. Download the WHMCS payment module from github page.
 2. Unzip the module to a temporary location on your computer.
 3. Copy the `modules` folder from the archive to your base `whmcs` folder (using FTP program or similar)
 4. This should NOT overwrite any existing files or folders and merely supplement them with the SSLWireless files
 5. Login to the WHMCS Administrator console
-6. Using the main menu, navigate to Setup ? Payment Gateways
-7. Select `SSLCommerz` from the `Activate Gateway` drop-down list and click `Activate`
-8. Enter the following details under the `SSLCommerz` heading: 
-Store ID = <Integration page>
-Store Password = <Integration page>
-Test Mode =
+6. Using the main menu, navigate to `Setup > Payments > Payment Gateways`
+7. Select `SSLCommerz Payment Gateway` from the `All Payment Gateways` drop-down list and click `Activate`
+8. Enter the following details under the `SSLCommerz Payment Gateway` heading: 
+`Display Name` = <Enter your display name>
+`Payment Button Label` = <Checkout button Name>
+`Store ID` = <Test/Live store id>
+`Store Password` = <Test/Live password>
+`Test Mode` = <Enable for test mode>
+`easyCheckout` = <Enable for easy popup>
 Click `Save Changes`
+* Check image referance.
 9. The module is now and ready.
 
 ### Image Reference
 
-![Payments Menu](images/config.png)
+> Payment Methods
+![Payments Menu](images/screenshot_1.png)
+
+> Gatway Configuration Page
+![Payments Menu](images/screenshot_2.png)
+
+> easyCheckout Popup
+
+![Popup](images/screenshot_3.png)
+
+> easyCheckout Hosted
+
+![Payments Menu](images/screenshot_4.png)
 
 ## Frequently Asked Questions
 
@@ -39,13 +62,20 @@ Click `Save Changes`
 > The minimum amount of transaction should be more than `10TK` .
 
 ### What is the API Version?
-> We are using API V3.0 & 3.5 middle tire, wchich will redirect to our New V4 API and able to get easyCheckout UI.
+> We are using API V4.
 
-### How to switch at easyCheckout Hosted PG?
-> To switch at easyCheckout Hosted PG, uncheck the `Customer will bear gateway charge` and enable it from merchant panel.
+### How to switch at easyCheckout Popup PG?
+> To switch at easyCheckout Popup PG, enable `easyCheckout` checkbox.
 
 ### Is this module support IPN?
-> No, currently IPN is not supported for this module.
+> Yes, this module supported dynamic IPN. So you don't need to setup any IPN URL to the merchant panel.
 
-### How to integrate easyCheckout Popup?
-> You can update the module with the help of our [Developer Page](https://developer.sslcommerz.com/doc/v4/#easy-chechout "SSLCommerz Developer Page")
+### To know more visit [Developer Page](https://developer.sslcommerz.com/doc/v4/#easy-chechout "SSLCommerz Developer Page")
+
+
+- Author : SSLCOMMERZ
+- Developed By: Prabal Mallick
+- Team Email: integration@sslcommerz.com (For any query)
+- About SSLCommerz: https://www.sslcommerz.com
+
+© 2020 SSLCOMMERZ ALL RIGHTS RESERVED
