@@ -43,6 +43,7 @@
     $post_data['cus_country']   = $json_data['cus_country'];
     $post_data['value_a']       = $json_data['value_a'];
     $post_data['value_b']       = $json_data['value_b'];
+    $post_data['value_c']       = $json_data['value_c'];
     $post_data['shipping_method'] = 'NO';
     $post_data['num_of_item'] = '1';
     $post_data['product_name'] = $json_data['product_name'];

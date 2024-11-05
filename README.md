@@ -4,16 +4,16 @@ SSLCOMMERZ is the first payment gateway in Bangladesh opening doors for merchant
 
 ### Prerequisites
 
-1. WHMCS V6-V7
+1. WHMCS V8.0 or later
 2. cURL php extension.
-3. [Sandbox Account](https://developer.sslcommerz.com/registration/ "SSLCommerz Sandbox Registration")
+3. [Sandbox](https://developer.sslcommerz.com/registration/ "SSLCommerz Sandbox Registration") or [Live](https://join.sslcommerz.com/ "SSLCommerz Live Registration") API credentials
 
 ### Change Log
 
 1. New version 4 API.
 2. New easyCheckout Hosted & Popup UI.
 3. Dynamic IPN URL(Auto Configure)
-4. Tested upto V7.5.1 R2
+4. Tested upto V8.8
 
 ### How to install the WHMCS module?
 
