@@ -2,10 +2,10 @@
 
 
 /**
- * WHMCS SSLCommerz Payment Gateway Module
+ * WHMCS SSLCOMMERZ Payment Gateway Module
  * @see https://developer.sslcommerz.com/
- * @author: SSLCommerz Integration Team
- * @copyright Copyright (c) SSLCommerz 2020-2024
+ * @author: SSLCOMMERZ Integration Team
+ * @copyright Copyright (c) SSLCOMMERZ 2020-2025
  * @license http://www.whmcs.com/license/ WHMCS Eula
 **/
 
@@ -21,20 +21,20 @@
     function sslcommerz_MetaData()
     {
         return array(
-            'DisplayName' => 'SSLCommerz Payment Gateway',
-            'APIVersion' => '1.1'
+            'DisplayName' => 'SSLCOMMERZ Payment Gateway',
+            'APIVersion' => '1.1',
+            'LogoFilename' => 'sslcommerz.png',
         );
     }
 
 
     function sslcommerz_config() {
         $configarray = array(
-            "FriendlyName" => array("Type" => "System", "Value"=>"SSLCommerz Payment Gateway"),
+            "FriendlyName" => array("Type" => "System", "Value"=>"SSLCOMMERZ Payment Gateway"),
             "button_text" => array("FriendlyName" => "Payment Button Label", "Type" => "text", "Size" => "50", 'Default' => 'Proceed to Payment',),
             "store_id" => array("FriendlyName" => "Store ID", "Type" => "text", "Size" => "100", ),
             "store_password" => array("FriendlyName" => "Store Password", "Type" => "password", "Size" => "100", ),
-            "testmode" => array("FriendlyName" => "Enable Sandbox / Testmode?", "Type" => "yesno", "Description" => "Choose 'NO' in live environment.", ),
-            "gateway_type" => array("FriendlyName" => "easyCheckout", "Type" => "yesno", "Description" => "Use easycheckout popup?", )
+            "testmode" => array("FriendlyName" => "Enable Sandbox / Testmode?", "Type" => "yesno", "Description" => "Untick for Live Integration Credentials.", ),
         );
     	return $configarray;
     }
@@ -47,7 +47,7 @@
     	$gatewaystore_password  = trim($params['store_password']);
     	$gatewaybutton_text     = trim($params['button_text']);
     	$gatewaytestmode        = $params['testmode'];
-    	$gatewaytype            = $params['gateway_type'];
+    	$gatewaytype            = "off";
     	
     	if ($gatewaytestmode == "on") {
             $api_endpoint ='https://sandbox.sslcommerz.com/gwprocess/v4/api.php';

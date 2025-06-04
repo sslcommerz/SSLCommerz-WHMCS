@@ -20,7 +20,7 @@
         $url ='https://securepay.sslcommerz.com/gwprocess/v4/api.php';
     }
     
-    $tran_id = $_REQUEST['order'];
+    $tran_id = uniqid();
 	$json_data = json_decode(html_entity_decode($_REQUEST['cart_json']), true);
 
 	$post_data = array();

@@ -1,0 +1,20 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-gateways",
+  "name": "sslcommerz",
+  "license": "proprietary",
+  "category": "payments",
+  "description": {
+    "name": "SSLCOMMERZ",
+    "tagline": "Largest payment gateway aggregator in Bangladesh."
+  },
+  "support": {
+    "docs_url": "https:\/\/github.com\/sslcommerz"
+  },
+  "authors": [
+    {
+      "name": "SSLCOMMERZ",
+      "homepage": "mailto:integration@sslcommerz.com"
+    }
+  ]
+}
