@@ -55,6 +55,9 @@ Click `Save Changes`
 
 ## Frequently Asked Questions
 
+### How do I contact for technical issues
+> Please email at integration@sslcommerz.com. Describe your issue in detail and __attach relevant error logs__.
+
 ### I want my customer will bear the gateway charges. How can I do that?
 > Yes, We have solution for this, you can configure this from your merchant panel or mail to `operation@sslcommerz.com` .
 
@@ -64,18 +67,10 @@ Click `Save Changes`
 ### What is the API Version?
 > We are using API V4.
 
-### How to switch at easyCheckout Popup PG?
-> To switch at easyCheckout Popup PG, enable `easyCheckout` checkbox.
-
 ### Is this module support IPN?
 > Yes, this module supported dynamic IPN. So you don't need to setup any IPN URL to the merchant panel.
 
 ### To know more visit [Developer Page](https://developer.sslcommerz.com/doc/v4/#easy-chechout "SSLCommerz Developer Page")
 
 
-- Author : SSLCOMMERZ
-- Developed By: Prabal Mallick
-- Team Email: integration@sslcommerz.com (For any query)
-- About SSLCommerz: https://www.sslcommerz.com
-
-© 2020 SSLCOMMERZ ALL RIGHTS RESERVED
+© 2020-2025 SSLCOMMERZ ALL RIGHTS RESERVED
