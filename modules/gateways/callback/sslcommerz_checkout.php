@@ -68,9 +68,9 @@
         # PARSE THE JSON RESPONSE
         if($sslcResponse = json_decode($sslcommerzResponse, true))
         {
-        	if (isset($sslcResponse['status']) && $sslcResponse['status'] == 'SUCCESS') 
+        	if (!empty($sslcResponse['status']) && $sslcResponse['status'] == 'SUCCESS') 
             {
-                if(isset($sslcResponse['GatewayPageURL']) && $sslcResponse['GatewayPageURL']!="") 
+                if(!empty($sslcResponse['GatewayPageURL'])) 
                 {
      	          	if($gatewaytestmode == "on")
                 	{

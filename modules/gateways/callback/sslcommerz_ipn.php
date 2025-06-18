@@ -11,7 +11,7 @@
     $GATEWAY = getGatewayVariables($gatewaymodule);
 
     if (!$GATEWAY["type"]) die("Module Not Activated"); # Checks gateway module is active before accepting callback
-    if (!isset($_POST)) die("No Post Data To Validate!");
+    if (empty($_POST)) die("No Post Data To Validate!");
     
     $invoiceid = $_POST["value_c"];
 	$tran_id = $_POST["tran_id"];
@@ -24,7 +24,7 @@
 	if($_POST['status']=='VALID' && !empty($_POST['val_id']) && !empty($_POST['tran_id']))
 	{
 		$subdomain = $GATEWAY["testmode"] == "on" ? "sandbox" : "securepay";
-        $validation_url = "https://." .$subdomain. ".com/validator/api/validationserverAPI.php?val_id=".$val_id."&store_id=".$store_id."&store_passwd=".$store_passwd."&v=1&format=json";
+        $validation_url = "https://" .$subdomain. ".sslcommerz.com/validator/api/validationserverAPI.php?val_id=".$val_id."&store_id=".$store_id."&store_passwd=".$store_passwd."&v=1&format=json";
 		
 		$handle = curl_init();
 		curl_setopt_array($handle, [

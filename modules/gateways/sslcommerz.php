@@ -178,7 +178,7 @@
             # PARSE THE JSON RESPONSE
             $sslcz = json_decode($sslcommerzResponse, true );
             
-            if(isset($sslcz['GatewayPageURL']) && $sslcz['GatewayPageURL']!="") 
+            if(!empty($sslcz['GatewayPageURL'])) 
             {
         		$code = '<form method="POST" action="'.$sslcz['GatewayPageURL'].'">        
         		<input type="submit" class="btn btn-success" value="'.$gatewaybutton_text.'" />

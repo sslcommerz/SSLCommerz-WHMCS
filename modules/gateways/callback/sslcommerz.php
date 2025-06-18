@@ -12,7 +12,7 @@ $GATEWAY = getGatewayVariables($gatewaymodule);
 
 if (!$GATEWAY["type"])
 	die("Module Not Activated"); # Checks gateway module is active before accepting callback
-if (!isset($_POST))
+if (empty($_POST))
 	die("No Post Data To Validate!");
 
 $invoiceid = $_POST["value_c"];
@@ -68,15 +68,11 @@ if ($_POST['status'] == 'VALID' && !empty($_POST['val_id']) && !empty($_POST['tr
 	checkCbInvoiceID($invoiceid, $GATEWAY["name"]); # Checks invoice ID is a valid invoice number or ends processing
 	checkCbTransID($tran_id);
 
-	if ($status == "success") {
+	if ($result->status == "VALIDATED") {
 		logTransaction($GATEWAY["name"], array("Gateway Response" => $_POST, "Validation Response" => json_decode($results, true), "Response" => "Already Succeed By IPN"), "Successful"); # Save to Gateway Log: name, data array, status
 		header("Location: " . $systemurl . "/clientarea.php?action=services"); /* Redirect browser */
 		exit();
-	}
-
-	checkCbTransID($tran_id); # Checks transaction number isn't already in the database and ends processing if it does
-
-	if ($status == "success") {
+	} elseif ($result->status == "VALID") {
 		$fee = 0;
 		addInvoicePayment($invoiceid, $tran_id, $base_amount, $fee, $gatewaymodule);
 		logTransaction($GATEWAY["name"], $_POST, "Successful"); # Save to Gateway Log: name, data array, status
