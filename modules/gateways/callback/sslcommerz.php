@@ -5,24 +5,25 @@ include("../../../includes/functions.php");
 include("../../../includes/gatewayfunctions.php");
 include("../../../includes/invoicefunctions.php");
 
-$gatewaymodule = "sslcommerz"; # Enter your gateway module name here replacing template
-
-
+$gatewaymodule = "sslcommerz";
 $GATEWAY = getGatewayVariables($gatewaymodule);
 
-if (!$GATEWAY["type"])
+if (!$GATEWAY["type"]) {
 	die("Module Not Activated"); # Checks gateway module is active before accepting callback
-if (empty($_POST))
-	die("No Post Data To Validate!");
+}
 
 $invoiceid = $_POST["value_c"];
 $tran_id = $_POST["tran_id"];
 $val_id = $_POST["val_id"];
 
-
 $store_id = $GATEWAY["store_id"];
 $store_passwd = $GATEWAY["store_password"];
 $systemurl = rtrim($GATEWAY['systemurl'], '/');
+
+if (empty($_POST)) {
+	header("Location: " . $systemurl . "/clientarea.php?action=services");
+	exit();
+}
 
 if ($_POST['status'] == 'VALID' && !empty($_POST['val_id']) && !empty($_POST['tran_id'])) {
 	if ($GATEWAY["testmode"] == "on") {
@@ -45,34 +46,20 @@ if ($_POST['status'] == 'VALID' && !empty($_POST['val_id']) && !empty($_POST['tr
 		$result = json_decode($results);
 
 		$status = $result->status;
-		$tran_date = $result->tran_date;
 		$tran_id = $result->tran_id;
-		$val_id = $result->val_id;
-		$amount = $result->amount;
-		$store_amount = $result->store_amount;
-		$bank_tran_id = $result->bank_tran_id;
-		$card_type = $result->card_type;
 		$base_amount = $result->currency_amount;
 		$risk_level = $result->risk_level;
 		$base_fair = $result->base_fair;
 		$value_total = $result->value_b;
-
-		if (($status == 'VALID' || $status == 'VALIDATED') && $risk_level == 0) {
-			$status = 'success';
-		} else {
-			$status = 'failed';
-		}
-	} else {
-		$status = 'failed';
 	}
-	checkCbInvoiceID($invoiceid, $GATEWAY["name"]); # Checks invoice ID is a valid invoice number or ends processing
-	checkCbTransID($tran_id);
 
 	if ($result->status == "VALIDATED") {
 		logTransaction($GATEWAY["name"], array("Gateway Response" => $_POST, "Validation Response" => json_decode($results, true), "Response" => "Already Succeed By IPN"), "Successful"); # Save to Gateway Log: name, data array, status
 		header("Location: " . $systemurl . "/clientarea.php?action=services"); /* Redirect browser */
 		exit();
 	} elseif ($result->status == "VALID") {
+		checkCbInvoiceID($invoiceid, $GATEWAY["name"]); # Checks invoice ID is a valid invoice number or ends processing
+		checkCbTransID($tran_id);
 		$fee = 0;
 		addInvoicePayment($invoiceid, $tran_id, $base_amount, $fee, $gatewaymodule);
 		logTransaction($GATEWAY["name"], $_POST, "Successful"); # Save to Gateway Log: name, data array, status
